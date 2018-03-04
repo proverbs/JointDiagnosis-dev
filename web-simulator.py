@@ -8,7 +8,7 @@ payload = {
     'point_y': ['200'],
     'resolution':['1920x1080', ],
     'user_id':['10000', ],
-    'delay': ['250', ],
+    'delay': ['2500', ], # >500, activate save func
     'device': ['MACHENIKE']
 }
 
@@ -17,7 +17,7 @@ headers['User-Agent'] = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:53.0) Gecko/
 
 
 # loop
-file_path = './pic-stream/mm.jpg'
+file_path = './pic-stream/t1/mid-2.jpg'
 with open(file_path, 'rb') as img:
     byte_content = img.read()
 
