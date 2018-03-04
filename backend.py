@@ -33,10 +33,8 @@ MONGO_DBNAME = 'test'
 K = 3
 dq = collections.deque()
 for i in range(K):
-    dq.append((0.0, 0.0))
+    dq.append((0.0, 0.0)) # the output of model, rather than point on the screen
 
-# (1) py mongo(motor:https://motor.readthedocs.io/en/stable/) should be async
-# (2) handler must be efficient
 
 class APIHandler(tornado.web.RequestHandler):
     def __init__(self, app, request, **kwargs):
@@ -65,12 +63,10 @@ class GetHandler(APIHandler):
 
 
 class PostHandler(APIHandler):
-    # @tornado.web.asynchronous
     def get(self):
-        self.render("index.html") # snap automatically
-        # self.render("index2.html") # snap manually
+        self.write('Joint Diagnosis dev') # for dev  version
+        # self.render("index.html") # for official version
 
-    # @tornado.gen.coroutine
     def post(self):
         resp = self.predict()
         # return a json data with x, y as str(float)
